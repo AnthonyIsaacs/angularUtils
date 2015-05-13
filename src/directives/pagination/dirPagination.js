@@ -325,7 +325,7 @@
                     itemsPerPage = paginationService.getItemsPerPage(paginationId),
                     totalItems = paginationService.getCollectionLength(paginationId);
 
-                scope.range.lower = (currentPage - 1) * itemsPerPage + 1;
+                scope.range.lower = Math.min((currentPage - 1) * itemsPerPage + 1, totalItems);
                 scope.range.upper = Math.min(currentPage * itemsPerPage, totalItems);
                 scope.range.total = totalItems;
             }
